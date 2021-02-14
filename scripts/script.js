@@ -18,7 +18,7 @@ window.addEventListener('DOMContentLoaded', () => {
       const loop = JSON.parse(myStorage.getItem('list'));
       for(let i = 0; i < loop.length; i++) {
         let product = document.createElement('product-item');
-        product.className = 'product';
+        
         var shad = product.shadowRoot;
 
         shad.querySelector('.title').textContent = loop[i].title;
