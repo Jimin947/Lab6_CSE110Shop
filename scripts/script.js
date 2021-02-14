@@ -68,24 +68,24 @@ window.addEventListener('DOMContentLoaded', () => {
   
   function add(e) {
     if(e.getAttribute('add')== 'false'){
-      alert ('Added to Cart!');
-      myStorage.setItem('cart',cart);
       cart = cart + 1;
+      myStorage.setItem('cart',cart);
       document.getElementById('cart-count').innerHTML = cart;
       
       e.textContent = 'Remove from Cart';
       e.setAttribute('add',true);
       myStorage.setItem(e.id,'added');
+      alert ('Added to Cart!');
     }
-    else{
-      alert ('Removed from Cart!');
-      e.textContent = 'Add to Cart';
-      myStorage.setItem('cart',cart);
+    else if(e.getAttribute('add')== 'true'){
       cart = cart - 1;
+      myStorage.setItem('cart',cart);
+      e.textContent = 'Add to Cart';
       document.getElementById('cart-count').innerHTML = cart;
       
       myStorage.removeItem(e.id);
       e.setAttribute('add',false);
+      alert ('Removed from Cart!');
     }
   }
 });
